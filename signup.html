@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input autofocus type="text" placeholder="First Name" id="firstName">
+    <input autofocus type="text" placeholder="Last Name" id="lastName">
+    <input autofocus type="text" placeholder="Email" id="email">
+    <input autofocus type="password" placeholder="**************" id="password">
+    <button onclick="submitInfo()">Submit</button>
+</body>
+
+<script>
+    const allUsers = JSON.parse(localStorage.getItem('myUsers')) || []
+
+    const submitInfo = () => {
+        const first_name = document.getElementById('firstName').value
+        const last_name = document.getElementById('lastName').value
+        const mail = document.getElementById('email').value
+        const pass_word = document.getElementById('password').value
+
+        // console.log(first_name, last_name, mail, pass_word);
+        const userObj = { first_name, last_name, mail, pass_word }
+        // console.log(userObj);
+        allUsers.push(userObj)
+        localStorage.myUsers = JSON.stringify(allUsers)
+        console.log(allUsers);
+        
+    }
+</script>
+
+</html>
